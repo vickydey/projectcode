@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demand-deployment
+  labels:
+    app: demand
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: demand
+  template:
+    metadata:
+      labels:
+        app: demand
+    spec:
+      containers:
+      - name: demand
+        image: demand
+        ports:
+        - containerPort: 80
